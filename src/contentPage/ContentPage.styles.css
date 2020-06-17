@@ -20,7 +20,7 @@ body {
    height: 100%;
    width: 85%;
    margin-left: 20%;
-   margin-top: 40px;
+   margin-top: 50px;
    display: flex;
 }
 
@@ -28,4 +28,36 @@ body {
    height: 30px;
    border-radius: 5px;
    border-color: #1277a5;
+}
+
+h3 {
+   margin: 30px 0 0 0;
+   font-weight: 400;
+}
+
+hr {
+   border: #1277a5 1px solid;
+}
+
+.item {
+   width: 220px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+h4 {
+   margin: 0;
+}
+
+.item h4 {
+   font-weight: 400;
+}
+
+.item .time {
+   color: #1277a5;
+}
+
+.item span {
+   color: Black;
 }

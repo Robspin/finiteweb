@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './ContentPage.styles.css';
 
+import Navbar from '../components/navbar/Navbar';
 import Form from '../components/textarea/TextArea';
-import SearchInput from '../components/search-input/Search-input';
 
 class ContentPage extends Component {
    render() {
@@ -15,7 +15,7 @@ class ContentPage extends Component {
             />
             <div className='page-container'>
                <div className='row1'>
-                  <SearchInput />
+                  <Navbar />
                </div>
                <div className='row2'>{1 + 1 === 2 ? null : <Form />}</div>
             </div>
