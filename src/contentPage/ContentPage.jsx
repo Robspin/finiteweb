@@ -1,10 +1,29 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './ContentPage.styles.css';
+
+import data from '../components/navbar/exampledata';
 
 import Navbar from '../components/navbar/Navbar';
 import Form from '../components/form/Form';
+import Content from '../components/content/Content';
 
 class ContentPage extends Component {
+   constructor(props) {
+      super(props);
+      this.state = {
+         data: data,
+         current: '/corona',
+         currentData: {}
+      };
+   }
+
+   componentWillMount() {
+      let result = this.state.data.filter(obj => {
+         return obj.page === this.state.current;
+      });
+      this.setState({ currentData: result });
+   }
+
    render() {
       return (
          <div className='content-page'>
@@ -14,10 +33,17 @@ class ContentPage extends Component {
                alt=''
             />
             <div className='page-container'>
-               <div className='row1'>
-                  <Navbar />
+               <Navbar />
+               <div className='row2'>
+                  {this.state.currentData.length === 1 ? (
+                     <Content className='row2' props={this.state.currentData} />
+                  ) : (
+                     <Fragment>
+                        <h1>{this.state.current}</h1>
+                        <Form />
+                     </Fragment>
+                  )}
                </div>
-               <div className='row2'>{1 + 1 === 2 ? null : <Form />}</div>
             </div>
          </div>
       );

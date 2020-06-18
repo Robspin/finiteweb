@@ -26,7 +26,7 @@ class Form extends React.Component {
       return (
          <form onSubmit={this.handleSubmit}>
             <label>
-               Essay:
+               Edit:
                <textarea
                   value={this.state.value}
                   onChange={this.handleChange}

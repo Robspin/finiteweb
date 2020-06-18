@@ -21,7 +21,9 @@ body {
    width: 85%;
    margin-left: 20%;
    margin-top: 50px;
-   display: flex;
+   display: grid;
+   grid-gap: 50px;
+   grid-template-columns: 220px 1fr;
 }
 
 .search {
@@ -66,4 +68,12 @@ h4 {
 
 .item span {
    color: Black;
+}
+
+.row2 {
+   margin-right: 15%;
+}
+
+h1 {
+   font-weight: 500;
 }

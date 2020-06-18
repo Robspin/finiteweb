@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import SearchInput from '../search-input/Search-input';
-import Item from './Item';
+import Item from '../item/Item';
 
 import data from './exampledata';
 
