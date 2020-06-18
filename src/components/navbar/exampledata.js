@@ -18,6 +18,10 @@ const data = [
    {
       page: '/laptop',
       time: 36
+   },
+   {
+      page: '/almere',
+      time: 2
    }
 ];
 

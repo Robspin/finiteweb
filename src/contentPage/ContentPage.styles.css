@@ -58,6 +58,12 @@ h4 {
    color: #1277a5;
 }
 
+.link:hover {
+   color: #1277a5;
+   transition: 0.2s;
+   cursor: pointer;
+}
+
 .item span {
    color: Black;
 }

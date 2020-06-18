@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './ContentPage.styles.css';
 
 import Navbar from '../components/navbar/Navbar';
-import Form from '../components/textarea/TextArea';
+import Form from '../components/form/Form';
 
 class ContentPage extends Component {
    render() {
