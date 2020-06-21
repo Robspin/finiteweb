@@ -1,12 +1,10 @@
 import React from 'react';
 
-import Button from '../button/Button';
-
 class Form extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
-         value: ''
+         value: 'Please write what you know about this subject.'
       };
 
       this.handleChange = this.handleChange.bind(this);
@@ -26,15 +24,15 @@ class Form extends React.Component {
 
    render() {
       return (
-         <form className='form-container' onSubmit={this.handleSubmit}>
-            <label>What is this, a blank page?</label>
-            <textarea
-               placeholder='Please write what you know about this subject.'
-               value={this.state.value}
-               onChange={this.handleChange}
-            />
-            <input className='name-input' placeholder='Name' />
-            <Button label='Submit' />
+         <form onSubmit={this.handleSubmit}>
+            <label>
+               Essay:
+               <textarea
+                  value={this.state.value}
+                  onChange={this.handleChange}
+               />
+            </label>
+            <input type='submit' value='Submit' />
          </form>
       );
    }

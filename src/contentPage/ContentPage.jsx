@@ -12,8 +12,9 @@ class ContentPage extends Component {
       super(props);
       this.state = {
          data: data,
-         current: '/corona',
-         currentData: {}
+         current: '/coronas',
+         currentData: {},
+         editMode: false
       };
    }
 
@@ -22,6 +23,7 @@ class ContentPage extends Component {
          return obj.page === this.state.current;
       });
       this.setState({ currentData: result });
+      console.log(result);
    }
 
    render() {
@@ -36,11 +38,11 @@ class ContentPage extends Component {
                <Navbar />
                <div className='row2'>
                   {this.state.currentData.length === 1 ? (
-                     <Content className='row2' props={this.state.currentData} />
+                     <Content props={this.state.currentData} />
                   ) : (
                      <Fragment>
                         <h1>{this.state.current}</h1>
-                        <Form />
+                        <Form props={this.state.currentData} />
                      </Fragment>
                   )}
                </div>
