@@ -5,7 +5,12 @@ export default class Button extends Component {
    render(props) {
       return (
          <div>
-            <button>{this.props.label}</button>
+            <button
+               className={this.props.className}
+               onClick={this.props.onClick}
+            >
+               {this.props.label}
+            </button>
          </div>
       );
    }

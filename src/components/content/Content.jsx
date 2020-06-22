@@ -3,23 +3,33 @@ import '../../contentPage/ContentPage.styles.css';
 
 import Button from '../button/Button';
 
-const Content = props => {
-   const page = props.props[0];
-   return (
-      <Fragment>
-         <h1>{page.page}</h1>
-         <div className='content'>
-            <p>{page.text}</p>
-         </div>
-         <div className='edit-info'>
-            <Button label='Edit Page' />
-            <span>
-               Last edited by: {page.author === '' ? 'anon' : page.author} at{' '}
-               {page.time}
-            </span>
-         </div>
-      </Fragment>
-   );
-};
+class Content extends React.Component {
+   initContent() {
+      console.log(this.props);
+   }
+
+   componentDidUpdate = () => this.initContent();
+
+   render() {
+      return (
+         <Fragment>
+            <h1>{this.props.data.bPageID}</h1>
+            <div className='content'>
+               <p>{this.props.data.content}</p>
+            </div>
+            <div className='edit-info'>
+               <Button label='Edit Page' onClick={this.props.setEditMode} />
+               <span>
+                  Last edited by:{' '}
+                  {this.props.data.author === ''
+                     ? 'anon'
+                     : this.props.data.author}{' '}
+                  at {this.props.data.tsEdited}
+               </span>
+            </div>
+         </Fragment>
+      );
+   }
+}
 
 export default Content;
