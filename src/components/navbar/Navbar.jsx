@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import SearchInput from '../search-input/Search-input';
 import Item from '../item/Item';
 
 import data from './exampledata';
@@ -18,7 +17,6 @@ export default class Navbar extends Component {
 
       return (
          <div>
-            <SearchInput />
             <h3>Recently edited</h3>
             <hr />
             {data.map(item => (

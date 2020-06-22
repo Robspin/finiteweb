@@ -15,12 +15,31 @@ class ContentPage extends Component {
       super(props);
       this.state = {
          data: {},
-         current: 'bonsai',
-         editMode: false
+         current: '',
+         editMode: false,
+         searchValue: ''
       };
    }
 
-   setEditMode = () => {
+   handleChange = e => {
+      this.setState({ searchValue: e.target.value });
+   };
+
+   searchPage = e => {
+      if (e.key === 'Enter') {
+         this.setState(
+            {
+               data: {},
+               current: this.state.searchValue,
+               editMode: false
+            },
+            this.getData(this.state.searchValue)
+         );
+      }
+   };
+
+   setEditMode = e => {
+      e.preventDefault();
       if (this.state.editMode === false) {
          this.setState({
             editMode: true
@@ -30,18 +49,24 @@ class ContentPage extends Component {
             editMode: false
          });
       }
+      console.log(this.state.current);
+      this.getData(this.state.current);
    };
 
-   getData = () => {
-      api.get(this.state.current).then(res => {
-         this.setState({
-            data: res.data
+   getData = current => {
+      try {
+         api.get(current).then(res => {
+            this.setState({
+               data: res.data
+            });
+            // console.log(res.data);
          });
-         console.log(res.data);
-      });
+      } catch (err) {
+         console.log(err);
+      }
    };
 
-   componentDidMount = () => this.getData();
+   componentDidMount = () => this.getData(this.state.current);
 
    render() {
       return (
@@ -52,13 +77,25 @@ class ContentPage extends Component {
                alt=''
             />
             <div className='page-container'>
-               <Navbar />
+               <div>
+                  <input
+                     className='search'
+                     onChange={this.handleChange}
+                     onKeyPress={this.searchPage}
+                     placeholder='Search Pages...'
+                     type='text'
+                  />
+                  <Navbar />
+               </div>
                <div className='row2'>
                   {this.state.editMode === false ? (
-                     <Content
-                        data={this.state.data}
-                        setEditMode={this.setEditMode}
-                     />
+                     <Fragment>
+                        <h1>{this.state.current}</h1>
+                        <Content
+                           data={this.state.data}
+                           setEditMode={this.setEditMode}
+                        />
+                     </Fragment>
                   ) : (
                      <Fragment>
                         <h1>{this.state.current}</h1>

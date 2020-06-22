@@ -111,6 +111,7 @@ Button {
    border-radius: 3px;
    padding: 4px 10px;
    border: #5aa2c4 1px solid;
+   transition: 0.2s;
 }
 
 Button:hover {
@@ -167,6 +168,7 @@ label {
    background: gray;
    border: 1px lightgray solid;
    margin-left: 10px;
+   transition: 0.2s;
 }
 
 .cancel-button:hover {

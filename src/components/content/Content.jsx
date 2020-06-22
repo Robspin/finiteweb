@@ -4,16 +4,15 @@ import '../../contentPage/ContentPage.styles.css';
 import Button from '../button/Button';
 
 class Content extends React.Component {
-   initContent() {
-      console.log(this.props);
-   }
+   // initContent() {
+   //    console.log(this.props);
+   // }
 
-   componentDidUpdate = () => this.initContent();
+   // componentDidUpdate = () => this.initContent();
 
    render() {
       return (
          <Fragment>
-            <h1>{this.props.data.bPageID}</h1>
             <div className='content'>
                <p>{this.props.data.content}</p>
             </div>

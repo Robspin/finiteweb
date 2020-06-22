@@ -7,11 +7,13 @@ const api = axios.create({
    baseURL: `http://localhost:8080/api/`
 });
 
+const headers = { 'Content-Type': 'application/json' };
+
 class Form extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
-         value: 'test',
+         // value: 'test',
          textValue: '',
          nameValue: ''
       };
@@ -22,40 +24,33 @@ class Form extends React.Component {
    }
 
    handleChangeText(event) {
-      this.setState({ textValue: event.target.value }, () =>
-         console.log(this.state.textValue)
-      );
+      this.setState({ textValue: event.target.value });
    }
 
    handleChangeName(event) {
-      this.setState(
-         { nameValue: event.target.value }
-         // console.log(this.state.nameValue)
-         // console.log(this.props)
-      );
+      this.setState({ nameValue: event.target.value });
    }
 
-   handleSubmit = async event => {
-      // api.post(this.props);
-      event.preventDefault();
+   handleSubmit = async e => {
+      api.post(
+         this.props.props.current,
+         JSON.stringify({
+            author: this.state.nameValue === '' ? 'anon' : this.state.nameValue,
+            bPageID: this.props.current,
+            content: this.state.textValue
+         }),
+         { headers: headers }
+      );
+      this.props.setEditMode();
    };
-
-   // getText = () => {
-   //    console.log(this.props.data);
-   //    if (this.props.data.content !== '') {
-   //       this.setState({
-   //          value: this.props.data.content
-   //       });
-   //    }
-   // };
 
    render() {
       return (
-         <form className='form-container' onSubmit={this.handleSubmit}>
+         <form className='form-container'>
             <label>What is this, a blank page?</label>
             <textarea
                placeholder='Please write what you know about this subject.'
-               // value='test'
+               defaultValue={this.props.props.data.content}
                onChange={this.handleChangeText}
             />
             <input
@@ -64,7 +59,7 @@ class Form extends React.Component {
                placeholder='Name'
             />
             <div className='button-div'>
-               <Button label='Submit' />
+               <Button label='Submit' onClick={this.handleSubmit} />
                <Button
                   className='cancel-button'
                   label='Cancel'
