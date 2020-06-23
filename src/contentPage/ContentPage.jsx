@@ -16,7 +16,7 @@ class ContentPage extends Component {
       this.state = {
          data: {},
          current: '',
-         editMode: false,
+         editMode: true,
          searchValue: ''
       };
    }
@@ -31,15 +31,15 @@ class ContentPage extends Component {
             {
                data: {},
                current: this.state.searchValue,
-               editMode: false
+               editMode: true
             },
             this.getData(this.state.searchValue)
          );
       }
    };
 
-   setEditMode = e => {
-      e.preventDefault();
+   setEditMode = () => {
+      // e.preventDefault();
       if (this.state.editMode === false) {
          this.setState({
             editMode: true
@@ -49,21 +49,26 @@ class ContentPage extends Component {
             editMode: false
          });
       }
-      console.log(this.state.current);
-      this.getData(this.state.current);
    };
 
-   getData = current => {
+   getData = (current = this.state.current) => {
       try {
-         api.get(current).then(res => {
-            this.setState({
-               data: res.data
+         api.get(current)
+            .then(res => {
+               this.setState({
+                  data: res.data
+               });
+            })
+            .then(() => {
+               if (this.state.data.content !== undefined)
+                  this.setState({ editMode: false });
+               console.log(this.state.data.content);
             });
-            // console.log(res.data);
-         });
       } catch (err) {
          console.log(err);
       }
+      if (this.state.data.content === undefined)
+         this.setState({ editMode: true });
    };
 
    componentDidMount = () => this.getData(this.state.current);
@@ -90,7 +95,7 @@ class ContentPage extends Component {
                <div className='row2'>
                   {this.state.editMode === false ? (
                      <Fragment>
-                        <h1>{this.state.current}</h1>
+                        <h1>{this.state.current.toLowerCase()}</h1>
                         <Content
                            data={this.state.data}
                            setEditMode={this.setEditMode}
@@ -98,10 +103,11 @@ class ContentPage extends Component {
                      </Fragment>
                   ) : (
                      <Fragment>
-                        <h1>{this.state.current}</h1>
+                        <h1>{this.state.current.toLowerCase()}</h1>
                         <Form
                            props={this.state}
                            setEditMode={this.setEditMode}
+                           getData={this.getData}
                         />
                      </Fragment>
                   )}

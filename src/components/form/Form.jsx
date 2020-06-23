@@ -32,6 +32,8 @@ class Form extends React.Component {
    }
 
    handleSubmit = async e => {
+      // e.stopPropagation();
+      // e.nativeEvent.stopImmediatePropagation();
       api.post(
          this.props.props.current,
          JSON.stringify({
@@ -41,13 +43,19 @@ class Form extends React.Component {
          }),
          { headers: headers }
       );
-      this.props.setEditMode();
+      setTimeout(() => {
+         console.log();
+         this.props.getData();
+         this.props.setEditMode();
+      }, 200);
    };
 
    render() {
       return (
          <form className='form-container'>
-            <label>What is this, a blank page?</label>
+            {this.props.props.data.content ? null : (
+               <label>What is this, a blank page?</label>
+            )}
             <textarea
                placeholder='Please write what you know about this subject.'
                defaultValue={this.props.props.data.content}
@@ -59,8 +67,13 @@ class Form extends React.Component {
                placeholder='Name'
             />
             <div className='button-div'>
-               <Button label='Submit' onClick={this.handleSubmit} />
                <Button
+                  type='button'
+                  label='Submit'
+                  onClick={this.handleSubmit}
+               />
+               <Button
+                  type='button'
                   className='cancel-button'
                   label='Cancel'
                   onClick={this.props.setEditMode}
