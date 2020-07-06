@@ -1,0 +1,4 @@
+~~ to do ~~
+
+- Remove whitespace possibility in input and maximize characters.
+
