@@ -1,0 +1,39 @@
+import React, { useState, useEffect } from 'react';
+import History from '../History';
+import './search.css';
+
+const Search = () => {
+   const [input, setInput] = useState('');
+   const [current, setCurrent] = useState('');
+
+   const onSubmit = e => {
+      // e.preventDefault();
+      setCurrent(input.trim().toLowerCase());
+      History.push('/' + input.trim().toLowerCase());
+      setInput('');
+   };
+
+   return (
+      <form onSubmit={onSubmit}>
+         <div className='search-container'>
+            <div className='input-group'>
+               <input
+                  type='text'
+                  className='form-control'
+                  placeholder='Type page...'
+                  value={input}
+                  onChange={e => setInput(e.target.value)}
+               />
+
+               <div className='input-group-append'>
+                  <button className='search-btn' type='submit'>
+                     Go!
+                  </button>
+               </div>
+            </div>
+         </div>
+      </form>
+   );
+};
+
+export default Search;

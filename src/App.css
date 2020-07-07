@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
+@font-face {
+   font-family: 'nfs_by_jltv-webfont';
+   src: url('./font/nfs_by_jltv-webfont.woff2') format('woff2'),
+      url('./font/nfs_by_jltv-webfont.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+   box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+   margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+:root {
+   --main-bg-color: #343a40;
+   --secondary-bg-color: #2f3439;
+   --accent-color: #ffb866;
+   --text-color: #fff;
+   --border-color: rgb(201, 201, 201);
 }
 
-.App-link {
-  color: #61dafb;
+body {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   margin: 0;
+   background-color: var(--main-bg-color);
+   color: #fff;
+   overflow: hidden;
+   height: 100vh;
+   width: 100vw;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bg {
+   width: auto;
+   height: auto;
+}
+
+.main-container {
+   background-color: var(--secondary-bg-color);
+   border-right: 0.7px solid var(--border-color);
+   border: 0.7px solid var(--border-color);
+   text-align: center;
+   height: 99.8vh;
+   width: 100vw;
+}
+
+.logo {
+   font-family: 'nfs_by_jltv-webfont';
+   display: block;
+   color: var(--accent-color);
+   letter-spacing: 3px;
+   margin-left: 10px;
+   text-decoration: none;
+}
+
+.dash {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-style: italic;
+   font-weight: 500;
+   margin-right: 10px;
+}
+
+.subtitle {
+   margin-top: 25px;
+}
+
+.list-item {
+   color: var(--text-color);
+   text-decoration: none;
+   display: block;
+   padding: 5px;
+   margin: 5px;
+   border-radius: 5px;
+   transition: 0.4s ease-in-out;
+   width: 150px;
+}
+
+.list-item:hover {
+   background-color: var(--accent-color);
+   opacity: 0.5;
 }

@@ -2,7 +2,9 @@ import React, { Fragment, useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 // import { Context } from './Context';
-import History from './History';
+import History from '../components/History';
+import NavBar from '../components/navbar/NavBar';
+import Content from '../components/content/Content';
 
 const Search = ({ location, match }) => {
    // console.log(match.params.id);
@@ -41,40 +43,37 @@ const Search = ({ location, match }) => {
 
    return (
       <Fragment>
-         <div className='bg-dark text-light'>
-            <div className='container pt-5' style={{ height: '100vh' }}>
-               <Link to='/' className='btn btn-success mb-5'>
-                  &#11207; Back to Home
+         <div className='main-container'>
+            <div className='nav-container'>
+               <Link to='/' className='link'>
+                  <h1 className='logo'>
+                     FiniteWeb.com <span className='dash'>/</span>
+                  </h1>
                </Link>
 
-               <form onSubmit={onSubmit} className='mt-5'>
-                  <div className='input-group'>
-                     <input
-                        type='text'
-                        className='form-control'
-                        placeholder='Type page...'
-                        value={input}
-                        onChange={e => setInput(e.target.value)}
-                     />
+               <form onSubmit={onSubmit}>
+                  <div className='search-container'>
+                     <div className='input-group'>
+                        <input
+                           type='text'
+                           className='form-control'
+                           placeholder='Type page...'
+                           value={input}
+                           onChange={e => setInput(e.target.value)}
+                        />
 
-                     <div className='input-group-append'>
-                        <button className='btn btn-primary' type='submit'>
-                           Go!
-                        </button>
+                        <div className='input-group-append'>
+                           <button className='search-btn' type='submit'>
+                              Go!
+                           </button>
+                        </div>
                      </div>
                   </div>
                </form>
-
-               <h1>{current}</h1>
-               <p>
-                  {data.content}
-                  {/* <span className='text-info'>{current} </span>Lorem ipsum dolor
-                  sit amet consectetur adipisicing elit. Rerum sequi placeat
-                  explicabo alias inventore officiis, facilis laudantium. Harum
-                  quod dolorum optio facere vel praesentium ab!{' '}
-                  <span className='text-info'>{current} </span> . */}
-               </p>
             </div>
+            <h1>{current}</h1>
+            {/* <Content data={data} /> */}
+            <p>{data.content}</p>
          </div>
       </Fragment>
    );

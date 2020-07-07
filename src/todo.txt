@@ -2,3 +2,6 @@
 
 - Remove whitespace possibility in input and maximize characters.
 
+- Make pages look like concept
+
+- Fix pages sizing

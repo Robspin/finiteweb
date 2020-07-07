@@ -1,0 +1,38 @@
+input:focus {
+   outline: none;
+}
+
+.search-container {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.input-group {
+   position: relative;
+   width: 350px;
+   height: 38px;
+   margin-top: 5px;
+}
+
+input {
+   width: 350px;
+   height: 38px;
+   border-radius: 5px;
+   border: none;
+   font-size: 22px;
+}
+
+.search-btn {
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   border-top-right-radius: 5px;
+   border-bottom-right-radius: 5px;
+   border: 0.8px solid var(--accent-color);
+   color: var(--text-color);
+   background-color: var(--main-bg-color);
+   font-size: 22px;
+}
