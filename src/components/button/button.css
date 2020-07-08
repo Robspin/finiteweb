@@ -1,0 +1,26 @@
+.btn {
+   border: 0.8px solid var(--accent-color);
+   color: var(--text-color);
+   background-color: var(--main-bg-color);
+   font-size: 22px;
+   margin-left: 20px;
+   border-radius: 5px;
+   padding: 3px 5px;
+}
+
+.submit {
+   background-color: var(--accent-color);
+}
+
+.btn:hover {
+   cursor: pointer;
+   background-color: var(--accent-color);
+}
+
+.btn:focus {
+   outline: none;
+}
+
+.submit:hover {
+   background-color: var(--main-bg-color);
+}

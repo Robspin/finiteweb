@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import History from '../History';
 import './search.css';
 
 const Search = () => {
    const [input, setInput] = useState('');
+   //eslint-disable-next-line
    const [current, setCurrent] = useState('');
 
    const onSubmit = e => {

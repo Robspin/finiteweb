@@ -1,10 +1,13 @@
-import React, { Fragment, useState, useEffect, useContext } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 // import { Context } from './Context';
 import History from '../components/History';
-import NavBar from '../components/navbar/NavBar';
 import Content from '../components/content/Content';
+import Button from '../components/button/Button';
+import Form from '../components/form/Form';
+import Author from '../components/author/Author';
+// import NavBar from '../components/navbar/NavBar';
 
 const Search = ({ location, match }) => {
    // console.log(match.params.id);
@@ -12,14 +15,11 @@ const Search = ({ location, match }) => {
    // const [state, setState] = useContext(Context);
    const [current, setCurrent] = useState('');
    const [input, setInput] = useState('');
-
-   // useEffect(() => {
-   //    //eslint-disable-next-line
-   // }, []);
+   const [editMode, setEditMode] = useState(false);
 
    useEffect(() => {
       if (current === '') setCurrent(match.params.id);
-      console.log(match.params.id);
+      // console.log(match.params.id);
       axios
          .get(
             `http://localhost:8080/api/${current}
@@ -31,7 +31,7 @@ const Search = ({ location, match }) => {
             setdata(res.data);
          })
          .catch(err => console.log(err));
-      //eslint-disable-next-line
+      //es-lint-disable-next-line
    }, [current]);
 
    const onSubmit = e => {
@@ -41,39 +41,56 @@ const Search = ({ location, match }) => {
       setInput('');
    };
 
+   console.log(editMode);
+
    return (
       <Fragment>
-         <div className='main-container'>
-            <div className='nav-container'>
-               <Link to='/' className='link'>
-                  <h1 className='logo'>
-                     FiniteWeb.com <span className='dash'>/</span>
-                  </h1>
-               </Link>
+         <div className='grid-container'>
+            <div className='row-1'>
+               <div className='nav-container'>
+                  <Link to='/' className='link'>
+                     <h1 className='logo'>
+                        FiniteWeb.com <span className='dash'>/</span>
+                     </h1>
+                  </Link>
 
-               <form onSubmit={onSubmit}>
-                  <div className='search-container'>
-                     <div className='input-group'>
-                        <input
-                           type='text'
-                           className='form-control'
-                           placeholder='Type page...'
-                           value={input}
-                           onChange={e => setInput(e.target.value)}
-                        />
+                  <form onSubmit={onSubmit}>
+                     <div className='search-container'>
+                        <div className='input-group'>
+                           <input
+                              type='text'
+                              className='form-control'
+                              placeholder='Type page...'
+                              value={input}
+                              onChange={e => setInput(e.target.value)}
+                           />
 
-                        <div className='input-group-append'>
-                           <button className='search-btn' type='submit'>
-                              Go!
-                           </button>
+                           <div className='input-group-append'>
+                              <button className='search-btn' type='submit'>
+                                 Go!
+                              </button>
+                           </div>
                         </div>
                      </div>
+                  </form>
+               </div>
+               {/* --NavBar end -- */}
+               <h1 className='current-title'>{`/${current}`}</h1>
+               {editMode === false ? <Content data={data} /> : <Form />}
+               <div className='inline-div'>
+                  <div>
+                     <Button
+                        onClick={() =>
+                           editMode ? setEditMode(false) : setEditMode(true)
+                        }
+                        label={editMode ? 'cancel' : 'edit'}
+                     />
+                     {editMode ? <Button label='submit' submit={true} /> : null}
                   </div>
-               </form>
+                  <Author data={data} />
+               </div>
             </div>
-            <h1>{current}</h1>
-            {/* <Content data={data} /> */}
-            <p>{data.content}</p>
+            <div className='row-2'></div>
          </div>
       </Fragment>
    );

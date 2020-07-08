@@ -1,10 +1,9 @@
-import React, { Fragment, useState } from 'react';
-// import '../../contentPage/ContentPage.styles.css';
+import React, { Fragment } from 'react';
+import './content.css';
 
 // import Button from '../button/Button';
 
-const Content = () => {
-   const [data, setdata] = useState({});
+const Content = ({ data }) => {
    console.log(data);
 
    return (

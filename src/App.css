@@ -41,13 +41,16 @@ body {
    height: auto;
 }
 
-.main-container {
+.grid-container {
    background-color: var(--secondary-bg-color);
-   border-right: 0.7px solid var(--border-color);
-   border: 0.7px solid var(--border-color);
-   text-align: center;
+   /* border-right: 0.7px solid var(--border-color); */
+   /* border: 0.7px solid var(--border-color); */
+   text-align: start;
    height: 99.8vh;
    width: 100vw;
+   display: grid;
+   grid-gap: 50px;
+   grid-template-columns: 1fr 320px;
 }
 
 .logo {
@@ -84,4 +87,16 @@ body {
 .list-item:hover {
    background-color: var(--accent-color);
    opacity: 0.5;
+}
+
+.current-title {
+   font-weight: 500;
+   margin-top: 20px;
+   margin-left: 20px;
+}
+
+.inline-div {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
 }

@@ -1,7 +1,7 @@
 .logo-container {
    display: flex;
    align-items: center;
-   justify-content: start;
+   justify-content: flex-start;
 }
 
 .link {
@@ -12,7 +12,7 @@
    min-height: 10vh;
    display: flex;
    align-items: center;
-   justify-content: start;
+   justify-content: flex-start;
    padding: 10px;
    border-bottom: 0.7px solid var(--border-color);
    overflow: hidden;
