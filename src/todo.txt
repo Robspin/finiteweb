@@ -13,3 +13,11 @@
 - Button colors okay?
 
 - Anon input into author.
+
+- Fix top NavBar line.
+
+- Make Mobile friendly.
+
+- Loading spinner.
+
+- Linebreaks on posting text.

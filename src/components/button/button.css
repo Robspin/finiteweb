@@ -3,12 +3,12 @@
    color: var(--text-color);
    background-color: var(--main-bg-color);
    font-size: 22px;
-   margin-left: 20px;
    border-radius: 5px;
    padding: 3px 5px;
 }
 
 .submit {
+   margin-left: 20px;
    background-color: var(--accent-color);
 }
 

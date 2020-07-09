@@ -20,3 +20,10 @@
    outline: 1px solid slategrey;
    border-radius: 5px;
 }
+
+.inline-div {
+   margin-left: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}

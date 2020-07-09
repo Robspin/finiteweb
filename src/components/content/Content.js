@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import './content.css';
+import Button from '../button/Button';
+import Author from '../author/Author';
 
-// import Button from '../button/Button';
-
-const Content = ({ data }) => {
+const Content = ({ data, setEditMode }) => {
    console.log(data);
 
    return (
@@ -11,15 +11,11 @@ const Content = ({ data }) => {
          <div className='content'>
             <p>{data.content}</p>
          </div>
-         <div className='edit-info'>
-            {/* <Button label='Edit Page' onClick={this.props.setEditMode} />
-               <span>
-                  Last edited by:{' '}
-                  {this.props.data.author === ''
-                     ? 'anon'
-                     : this.props.data.author}{' '}
-                  at {this.props.data.tsEdited}
-               </span> */}
+         <div className='inline-div'>
+            <div>
+               <Button onClick={() => setEditMode(true)} label='edit' />
+            </div>
+            <Author data={data} />
          </div>
       </Fragment>
    );

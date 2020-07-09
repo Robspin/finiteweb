@@ -76,19 +76,11 @@ const Search = ({ location, match }) => {
                </div>
                {/* --NavBar end -- */}
                <h1 className='current-title'>{`/${current}`}</h1>
-               {editMode === false ? <Content data={data} /> : <Form />}
-               <div className='inline-div'>
-                  <div>
-                     <Button
-                        onClick={() =>
-                           editMode ? setEditMode(false) : setEditMode(true)
-                        }
-                        label={editMode ? 'cancel' : 'edit'}
-                     />
-                     {editMode ? <Button label='submit' submit={true} /> : null}
-                  </div>
-                  <Author data={data} />
-               </div>
+               {editMode === false ? (
+                  <Content data={data} setEditMode={() => setEditMode(true)} />
+               ) : (
+                  <Form setEditMode={() => setEditMode(false)} data={data} />
+               )}
             </div>
             <div className='row-2'></div>
          </div>
