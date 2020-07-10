@@ -1,0 +1,30 @@
+.recent-item {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-size: 18px;
+   margin-bottom: 5px;
+}
+
+h4 {
+   margin: 0;
+}
+
+.recent-item h4 {
+   font-weight: 400;
+}
+
+.recent-item .time {
+   color: var(--accent-color);
+}
+
+.link:hover {
+   color: var(--accent-color);
+   transition: 0.2s;
+   cursor: pointer;
+}
+
+.recent-item span {
+   color: var(--text-color);
+}

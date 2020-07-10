@@ -49,8 +49,12 @@ body {
    height: 99.8vh;
    width: 100vw;
    display: grid;
-   grid-gap: 50px;
+   grid-gap: 25px;
    grid-template-columns: 1fr 380px;
+}
+
+.row-2 {
+   background-color: var(--main-bg-color);
 }
 
 .logo {

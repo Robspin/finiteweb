@@ -21,3 +21,5 @@
 - Loading spinner.
 
 - Linebreaks on posting text.
+
+- Fix frontpage components

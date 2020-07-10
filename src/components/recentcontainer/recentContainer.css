@@ -1,0 +1,10 @@
+.recent-container {
+   margin: 10vh 20px 0 20px;
+}
+
+.recently {
+   padding-top: 20px;
+   font-weight: 400;
+   color: var(--accent-color);
+   font-size: 20px;
+}

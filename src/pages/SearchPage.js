@@ -1,13 +1,12 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-// import { Context } from './Context';
+
 import History from '../components/History';
 import Content from '../components/content/Content';
-import Button from '../components/button/Button';
 import Form from '../components/form/Form';
-import Author from '../components/author/Author';
-// import NavBar from '../components/navbar/NavBar';
+import RecentContainer from '../components/recentcontainer/RecentContainer';
+// import exampleData from '../components/recentcontainer/exampleData';
 
 const Search = ({ location, match }) => {
    // console.log(match.params.id);
@@ -26,7 +25,7 @@ const Search = ({ location, match }) => {
          `
          )
          .then(res => {
-            console.log(res.data);
+            // console.log(res.data);
             // console.log(current);
             setdata(res.data);
          })
@@ -40,8 +39,6 @@ const Search = ({ location, match }) => {
       History.push('/' + input.trim().toLowerCase());
       setInput('');
    };
-
-   console.log(editMode);
 
    return (
       <Fragment>
@@ -82,7 +79,9 @@ const Search = ({ location, match }) => {
                   <Form setEditMode={() => setEditMode(false)} data={data} />
                )}
             </div>
-            <div className='row-2'></div>
+            <div className='row-2'>
+               <RecentContainer setCurrent={setCurrent} />
+            </div>
          </div>
       </Fragment>
    );

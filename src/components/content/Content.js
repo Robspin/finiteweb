@@ -4,8 +4,6 @@ import Button from '../button/Button';
 import Author from '../author/Author';
 
 const Content = ({ data, setEditMode }) => {
-   console.log(data);
-
    return (
       <Fragment>
          <div className='content'>
