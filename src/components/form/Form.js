@@ -42,7 +42,13 @@ const Form = ({ setEditMode, data }) => {
             placeholder='Name'
          />
          <div className='buttons-div'>
-            <Button label='cancel' onClick={() => setEditMode(false)} />
+            <Button
+               label='cancel'
+               onClick={e => {
+                  e.preventDefault();
+                  setEditMode(false);
+               }}
+            />
             <Button label='submit' submit={true} onClick={handleSubmit} />
          </div>
       </form>

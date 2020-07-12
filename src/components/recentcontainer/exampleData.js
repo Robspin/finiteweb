@@ -17,7 +17,7 @@ const exampleData = [
       time: 15
    },
    {
-      bPageID: '/laptop',
+      bPageID: '/laptops',
       time: 36
    },
    {

@@ -98,3 +98,24 @@ body {
    margin-top: 20px;
    margin-left: 20px;
 }
+
+.link {
+   color: var(--text-color);
+}
+
+.sub-container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.sub-sub-container-left {
+   width: 50%;
+   margin-left: 20px;
+}
+
+.sub-sub-container {
+   width: 50%;
+   margin-left: 60px;
+   margin-right: 20px;
+}
