@@ -11,7 +11,7 @@ const Home = () => {
          <NavBar />
          <div className='sub-container'>
             <div className='sub-sub-container-left'>
-               <h3 className='recently'>Recently Editted:</h3>
+               <h3 className='recently'>Recently Edited:</h3>
                {exampleData.map(item => (
                   <div className='recent-item'>
                      <Link

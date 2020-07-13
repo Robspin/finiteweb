@@ -3,15 +3,14 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import History from '../components/History';
+import Loading from '../components/loading/Loading';
 import Content from '../components/content/Content';
 import Form from '../components/form/Form';
 import RecentContainer from '../components/recentcontainer/RecentContainer';
-// import exampleData from '../components/recentcontainer/exampleData';
 
-const Search = ({ location, match }) => {
-   // console.log(match.params.id);
+const Search = ({ match }) => {
    const [data, setdata] = useState({});
-   // const [state, setState] = useContext(Context);
+   const [loading, setLoading] = useState(true);
    const [current, setCurrent] = useState('');
    const [input, setInput] = useState('');
    const [editMode, setEditMode] = useState(false);
@@ -25,9 +24,8 @@ const Search = ({ location, match }) => {
          `
          )
          .then(res => {
-            // console.log(res.data);
-            // console.log(current);
             setdata(res.data);
+            setLoading(false);
          })
          .catch(err => console.log(err));
       //es-lint-disable-next-line
@@ -38,6 +36,16 @@ const Search = ({ location, match }) => {
       setCurrent(input.trim().toLowerCase());
       History.push('/' + input.trim().toLowerCase());
       setInput('');
+   };
+
+   const content = () => {
+      if (loading === true) {
+         return <Loading />;
+      } else if (editMode === false) {
+         return <Content data={data} setEditMode={() => setEditMode(true)} />;
+      } else {
+         return <Form setEditMode={() => setEditMode(false)} data={data} />;
+      }
    };
 
    return (
@@ -73,11 +81,12 @@ const Search = ({ location, match }) => {
                </div>
                {/* --NavBar end -- */}
                <h1 className='current-title'>{`/${current}`}</h1>
-               {editMode === false ? (
+               {content()}
+               {/* {editMode === false ? (
                   <Content data={data} setEditMode={() => setEditMode(true)} />
                ) : (
                   <Form setEditMode={() => setEditMode(false)} data={data} />
-               )}
+               )} */}
             </div>
             <div className='row-2'>
                <RecentContainer

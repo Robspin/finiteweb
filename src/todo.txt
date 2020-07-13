@@ -1,5 +1,7 @@
 ~~ to do ~~
 
+- Fix being able to switch pages while staying into editMode
+
 - Remove whitespace possibility in input and maximize characters.
 
 - Make pages look like concept

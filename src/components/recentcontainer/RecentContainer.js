@@ -7,7 +7,7 @@ import exampleData from './exampleData';
 const recentContainer = ({ setCurrent, setEditMode }) => {
    return (
       <div className='recent-container'>
-         <h3 className='recently'>Recently editted:</h3>
+         <h3 className='recently'>Recently edited:</h3>
          {exampleData.map(item => (
             <RecentItem
                key={item.bPageID}
