@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import History from '../../History';
 import './recentItem.css';
 
-const RecentItem = ({ item, setCurrent }) => {
+const RecentItem = ({ item, setCurrent, setEditMode }) => {
    return (
       <div className='recent-item'>
          <h4
@@ -11,6 +10,7 @@ const RecentItem = ({ item, setCurrent }) => {
             onClick={() => {
                setCurrent(item.bPageID.substring(1));
                History.push(item.bPageID.substring(1));
+               setEditMode(false);
             }}
          >
             {item.bPageID}

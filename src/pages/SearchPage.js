@@ -80,7 +80,10 @@ const Search = ({ location, match }) => {
                )}
             </div>
             <div className='row-2'>
-               <RecentContainer setCurrent={setCurrent} />
+               <RecentContainer
+                  setCurrent={setCurrent}
+                  setEditMode={setEditMode}
+               />
             </div>
          </div>
       </Fragment>

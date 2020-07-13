@@ -2,18 +2,21 @@
    display: flex;
    flex-direction: column;
    margin-left: 20px;
+   margin-top: 20px;
 }
 
 textarea {
    font-size: 16px;
-   margin-top: 10px;
+   /* background-color: var(--background-color);
+   color: var(--text-color); */
+   /* margin-top: 10px;
    border-radius: 5px;
    min-height: 80px;
    height: 180px;
    max-height: 300px;
    min-width: 182px;
    max-width: 95%;
-   margin-bottom: 10px;
+   margin-bottom: 10px; */
    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
       'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
       'Helvetica Neue', sans-serif;
@@ -24,6 +27,8 @@ textarea:focus {
 }
 
 .name-input {
+   padding-left: 10px;
+   margin-top: 10px;
    max-width: 172px;
    font-size: 18px;
 }
