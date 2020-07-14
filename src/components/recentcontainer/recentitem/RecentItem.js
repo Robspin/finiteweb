@@ -2,14 +2,16 @@ import React from 'react';
 import History from '../../History';
 import './recentItem.css';
 
+import timeConverter from '../../timeconverter/timeConverter';
+
 const RecentItem = ({ item, setCurrent, setEditMode }) => {
    return (
       <div className='recent-item'>
          <h4
             className='link'
             onClick={() => {
-               setCurrent(item.bPageID.substring(1));
-               History.push(item.bPageID.substring(1));
+               setCurrent(item.bPageID);
+               History.push(item.bPageID);
                setEditMode(false);
             }}
          >
@@ -17,7 +19,7 @@ const RecentItem = ({ item, setCurrent, setEditMode }) => {
          </h4>
 
          <h4 className='time'>
-            {`${item.time}${item.time === 1 ? ' min ' : ' mins '}`}
+            {timeConverter(item.tsEdited)}
             <span>ago</span>
          </h4>
       </div>

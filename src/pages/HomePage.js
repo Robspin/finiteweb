@@ -1,18 +1,33 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import NavBar from '../components/navbar/NavBar';
-import exampleData from '../components/recentcontainer/exampleData';
 import popularExampleData from '../components/recentcontainer/popularExampleData';
+import timeConverter from '../components/timeconverter/timeConverter';
 
 const Home = () => {
+   const [recent, setRecent] = useState([]);
+
+   useEffect(() => {
+      axios
+         .get(
+            `http://localhost:8080/api/recent
+         `
+         )
+         .then(res => {
+            setRecent(res.data);
+         })
+         .catch(err => console.log(err));
+   }, []);
+
    return (
       <Fragment>
          <NavBar />
          <div className='sub-container'>
             <div className='sub-sub-container-left'>
                <h3 className='recently'>Recently Edited:</h3>
-               {exampleData.map(item => (
+               {recent.map(item => (
                   <div className='recent-item'>
                      <Link
                         key={item.bPageID}
@@ -22,7 +37,7 @@ const Home = () => {
                         {item.bPageID}
                      </Link>
                      <h4 className='time'>
-                        {`${item.time}${item.time === 1 ? ' min ' : ' mins '}`}
+                        {timeConverter(item.tsEdited)}
                         <span>ago</span>
                      </h4>
                   </div>

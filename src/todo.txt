@@ -1,16 +1,8 @@
 ~~ to do ~~
 
-- Fix being able to switch pages while staying into editMode
-
 - Remove whitespace possibility in input and maximize characters.
 
-- Make pages look like concept
-
-- Fix pages sizing
-
-- Propper solution for SearchPage searchcomponent
-
-- Automatic linebreaks?
+- Proper solution for SearchPage searchcomponent
 
 - Button colors okay?
 
@@ -18,8 +10,6 @@
 
 - Make Mobile friendly.
 
-- Loading spinner.
-
-- Linebreaks on posting text.
-
 - Fix frontpage components
+
+- Optimize code

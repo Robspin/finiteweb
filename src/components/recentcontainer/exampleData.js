@@ -2,27 +2,27 @@ const exampleData = [
    {
       bPageID: '/corona',
       author: '',
-      time: 1
+      tsEdited: 1
    },
    {
       bPageID: '/webdevelopment',
-      time: 2
+      tsEdited: 2
    },
    {
       bPageID: '/bonsai',
-      time: 5
+      tsEdited: 5
    },
    {
       bPageID: '/yoga',
-      time: 15
+      tsEdited: 15
    },
    {
       bPageID: '/laptops',
-      time: 36
+      tsEdited: 36
    },
    {
       bPageID: '/almere',
-      time: 44
+      tsEdited: 44
    }
 ];
 
