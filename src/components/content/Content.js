@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import './content.css';
 import Button from '../button/Button';
 import Author from '../author/Author';
+import { convertUnlockTime } from '../timeconverter/timeConverter';
 
 import MarkdownIt from 'markdown-it';
 
@@ -9,6 +10,8 @@ const mdParser = new MarkdownIt();
 
 const Content = ({ data, setEditMode }) => {
    const [parsed, setParsed] = useState('');
+
+   console.log(data);
 
    useEffect(() => {
       if (typeof data.content === 'string') {
@@ -25,7 +28,14 @@ const Content = ({ data, setEditMode }) => {
          ></div>
          <div className='inline-div'>
             <div>
-               <Button onClick={() => setEditMode(true)} label='edit' />
+               <Button
+                  onClick={() =>
+                     convertUnlockTime(data.tsEditUnlock)
+                        ? setEditMode(true)
+                        : null
+                  }
+                  label='edit'
+               />
             </div>
             <Author data={data} />
          </div>

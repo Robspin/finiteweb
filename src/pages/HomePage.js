@@ -9,7 +9,7 @@ import timeConverter from '../components/timeconverter/timeConverter';
 const Home = () => {
    const [recent, setRecent] = useState([]);
 
-   useEffect(() => {
+   const fetchData = () => {
       axios
          .get(
             `http://localhost:8080/api/recent
@@ -17,8 +17,17 @@ const Home = () => {
          )
          .then(res => {
             setRecent(res.data);
+            // console.log(res.data);
          })
          .catch(err => console.log(err));
+   };
+
+   useEffect(() => {
+      fetchData();
+      setInterval(() => {
+         setRecent([]);
+         fetchData();
+      }, 60000);
    }, []);
 
    return (

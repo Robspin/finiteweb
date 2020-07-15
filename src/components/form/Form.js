@@ -22,6 +22,7 @@ const Form = ({ setEditMode, data }) => {
    const headers = { 'Content-Type': 'application/json' };
 
    const handleSubmit = e => {
+      e.preventDefault();
       axios
          .post(
             `http://localhost:8080/api/${data.bPageID}`,

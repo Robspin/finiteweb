@@ -1,15 +1,15 @@
 ~~ to do ~~
 
+- Better alert for when to edit
+
+- Rerender recently edited after submitting form
+
 - Remove whitespace possibility in input and maximize characters.
 
 - Proper solution for SearchPage searchcomponent
 
 - Button colors okay?
 
-- Fix top NavBar line.
-
 - Make Mobile friendly.
-
-- Fix frontpage components
 
 - Optimize code

@@ -12,7 +12,7 @@ const Search = () => {
       setCurrent(input.trim().toLowerCase());
       History.push('/' + input.trim().toLowerCase());
       setInput('');
-      console.log(History);
+      // console.log(History);
    };
 
    return (

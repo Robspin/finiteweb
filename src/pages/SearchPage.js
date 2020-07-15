@@ -29,13 +29,14 @@ const Search = ({ match }) => {
          })
          .catch(err => console.log(err));
       //es-lint-disable-next-line
-   }, [current]);
+   }, [current, editMode]);
 
    const onSubmit = e => {
       e.preventDefault();
       setCurrent(input.trim().toLowerCase());
       History.push('/' + input.trim().toLowerCase());
       setInput('');
+      setEditMode(false);
    };
 
    const content = () => {

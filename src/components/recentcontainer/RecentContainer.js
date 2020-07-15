@@ -7,7 +7,7 @@ import RecentItem from './recentitem/RecentItem';
 const RecentContainer = ({ setCurrent, setEditMode }) => {
    const [recent, setRecent] = useState([]);
 
-   useEffect(() => {
+   const fetchData = () => {
       axios
          .get(
             `http://localhost:8080/api/recent
@@ -17,6 +17,15 @@ const RecentContainer = ({ setCurrent, setEditMode }) => {
             setRecent(res.data);
          })
          .catch(err => console.log(err));
+   };
+
+   useEffect(() => {
+      fetchData();
+
+      setInterval(() => {
+         setRecent([]);
+         fetchData();
+      }, 60000);
    }, []);
 
    return (
