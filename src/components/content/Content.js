@@ -11,7 +11,7 @@ const mdParser = new MarkdownIt();
 const Content = ({ data, setEditMode }) => {
    const [parsed, setParsed] = useState('');
 
-   console.log(data);
+   // console.log(data);
 
    useEffect(() => {
       if (typeof data.content === 'string') {

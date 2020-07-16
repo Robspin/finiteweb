@@ -17,7 +17,9 @@ const Form = ({ setEditMode, data }) => {
    const [selectedTab, setSelectedTab] = React.useState('write');
 
    // const handleChangeText = e => setText(e.target.value);
-   const handleChangeName = e => setName(e.target.value);
+   const handleChangeName = e => {
+      setName(e.target.value);
+   };
 
    const headers = { 'Content-Type': 'application/json' };
 
@@ -71,7 +73,11 @@ const Form = ({ setEditMode, data }) => {
          </div>
          <input
             className='name-input'
+            maxLength={12}
             onChange={handleChangeName}
+            onKeyPress={e =>
+               e.which === 13 || (e.which === 32 && e.preventDefault())
+            }
             placeholder='Name'
          />
          <div className='buttons-div'>

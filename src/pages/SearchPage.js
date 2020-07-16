@@ -16,7 +16,11 @@ const Search = ({ match }) => {
    const [editMode, setEditMode] = useState(false);
 
    useEffect(() => {
-      if (current === '') setCurrent(match.params.id);
+      if (current === '') {
+         let x = match.params.id;
+         if (x.length > 12) x = x.slice(0, 12);
+         setCurrent(x);
+      }
       // console.log(match.params.id);
       axios
          .get(
@@ -68,6 +72,7 @@ const Search = ({ match }) => {
                               className='form-control'
                               placeholder='Type page...'
                               value={input}
+                              maxLength={12}
                               onChange={e => setInput(e.target.value)}
                            />
 

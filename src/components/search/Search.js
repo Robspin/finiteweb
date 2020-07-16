@@ -21,6 +21,7 @@ const Search = () => {
             <div className='input-group'>
                <input
                   type='text'
+                  maxLength={12}
                   className='form-control'
                   placeholder='Type page...'
                   value={input}
