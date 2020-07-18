@@ -1,14 +1,8 @@
 ~~ to do ~~
 
-- Better alert for when to edit
+- Better alert for when to edit ?
 
-- Rerender recently edited after submitting form
-
-- Remove whitespace possibility in input and maximize characters.
-
-- Proper solution for SearchPage searchcomponent
-
-- Button colors okay?
+- Rerender recently edited after submitting form ?
 
 - Make Mobile friendly.
 

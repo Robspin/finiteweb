@@ -76,7 +76,7 @@ const Form = ({ setEditMode, data }) => {
             maxLength={12}
             onChange={handleChangeName}
             onKeyPress={e =>
-               e.which === 13 || (e.which === 32 && e.preventDefault())
+               e.which === 13 || e.which === 32 ? e.preventDefault() : null
             }
             placeholder='Name'
          />
