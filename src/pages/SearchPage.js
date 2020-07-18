@@ -12,10 +12,11 @@ const Search = ({ match }) => {
    const [loading, setLoading] = useState(true);
    const [current, setCurrent] = useState('');
    const [editMode, setEditMode] = useState(false);
+   const [url] = useState(match.params.id);
 
    useEffect(() => {
       if (current === '') {
-         let x = match.params.id;
+         let x = url;
          if (x.length > 12) x = x.slice(0, 12);
          setCurrent(x);
       }
@@ -30,8 +31,7 @@ const Search = ({ match }) => {
             setLoading(false);
          })
          .catch(err => console.log(err));
-      //es-lint-disable-next-line
-   }, [current, editMode]);
+   }, [current, editMode, url]);
 
    const content = () => {
       if (loading === true) {

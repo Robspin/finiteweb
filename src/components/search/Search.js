@@ -5,11 +5,11 @@ import './search.css';
 const Search = () => {
    const [input, setInput] = useState('');
    //eslint-disable-next-line
-   const [current, setCurrent] = useState('');
+   // const [current, setCurrent] = useState('');
 
    const onSubmit = e => {
       // e.preventDefault();
-      setCurrent(input.trim().toLowerCase());
+      // setCurrent(input.trim().toLowerCase());
       History.push('/' + input.trim().toLowerCase());
       setInput('');
       // console.log(History);

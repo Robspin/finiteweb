@@ -37,12 +37,8 @@ const Home = () => {
             <div className='sub-sub-container-left'>
                <h3 className='recently'>Recently Edited:</h3>
                {recent.map(item => (
-                  <div className='recent-item'>
-                     <Link
-                        key={item.bPageID}
-                        to={item.bPageID}
-                        className='link'
-                     >
+                  <div key={item.bPageID} className='recent-item'>
+                     <Link to={item.bPageID} className='link'>
                         {item.bPageID}
                      </Link>
                      <h4 className='time'>
@@ -55,8 +51,8 @@ const Home = () => {
             <div className='sub-sub-container'>
                <h3 className='recently'>Popular Pages:</h3>
                {popularExampleData.map(item => (
-                  <div className='recent-item'>
-                     <Link key={item.name} to={item.name} className='link'>
+                  <div key={item.name} className='recent-item'>
+                     <Link to={item.name} className='link'>
                         {item.name}
                      </Link>
                      <h4 className='time'>
