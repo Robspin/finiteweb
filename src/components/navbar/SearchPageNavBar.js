@@ -30,7 +30,7 @@ const SearchPageNavBar = ({ setEditMode, setCurrent }) => {
                      className='form-control'
                      placeholder='Type page...'
                      value={input}
-                     maxLength={12}
+                     maxLength={64}
                      onChange={e => setInput(e.target.value)}
                   />
 

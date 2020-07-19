@@ -17,3 +17,16 @@
    border-bottom: 0.7px solid var(--border-color);
    overflow: hidden;
 }
+
+@media only screen and (max-width: 780px) {
+   .nav-container {
+      min-height: 10vh;
+      display: flex;
+      flex-direction: column;
+      padding: 5px 10px 10px 10px;
+   }
+
+   .logo {
+      font-size: 28px;
+   }
+}

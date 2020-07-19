@@ -43,8 +43,6 @@ body {
 
 .grid-container {
    background-color: var(--secondary-bg-color);
-   /* border-right: 0.7px solid var(--border-color); */
-   /* border: 0.7px solid var(--border-color); */
    text-align: start;
    height: 99.8vh;
    width: 100vw;
@@ -118,4 +116,46 @@ body {
    width: 50%;
    margin-left: 60px;
    margin-right: 20px;
+}
+
+@media only screen and (max-width: 1145px) {
+   .grid-container {
+      padding-left: 20px;
+      padding-right: 20px;
+      grid-template-columns: 1fr;
+   }
+
+   .row-2 {
+      background-color: var(--secondary-bg-color);
+   }
+
+   body {
+      overflow-y: scroll;
+      background-color: var(--secondary-bg-color);
+   }
+
+   .recent-container {
+      margin-top: 20px;
+      padding-bottom: 20px;
+   }
+}
+
+@media only screen and (max-width: 900px) {
+   .sub-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+   }
+
+   .sub-sub-container-left {
+      width: 100%;
+      margin-left: 0;
+   }
+
+   .sub-sub-container {
+      width: 100%;
+      margin-left: 0px;
+      margin-right: 0px;
+   }
 }

@@ -7,11 +7,13 @@ import Search from '../search/Search';
 const NavBar = ({ onSubmit }) => {
    return (
       <div className='nav-container'>
-         <Link to='/' className='link'>
-            <h1 className='logo'>
-               FiniteWeb.com <span className='dash'>/</span>
-            </h1>
-         </Link>
+         <div>
+            <Link to='/' className='link'>
+               <h1 className='logo'>
+                  FiniteWeb.com <span className='dash'>/</span>
+               </h1>
+            </Link>
+         </div>
          <Search onSubmit={onSubmit} />
       </div>
    );

@@ -15,7 +15,9 @@ const RecentItem = ({ item, setCurrent, setEditMode }) => {
                setEditMode(false);
             }}
          >
-            {item.bPageID}
+            {item.bPageID.length > 14
+               ? `${item.bPageID.slice(0, 14)}...`
+               : item.bPageID}
          </h4>
 
          <h4 className='time'>

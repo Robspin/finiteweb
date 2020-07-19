@@ -17,7 +17,7 @@ const Search = ({ match }) => {
    useEffect(() => {
       if (current === '') {
          let x = url;
-         if (x.length > 12) x = x.slice(0, 12);
+         if (x.length > 64) x = x.slice(0, 64);
          setCurrent(x);
       }
       // console.log(match.params.id);
@@ -51,8 +51,9 @@ const Search = ({ match }) => {
                   setEditMode={setEditMode}
                   setCurrent={setCurrent}
                />
-               {/* --NavBar end -- */}
-               <h1 className='current-title'>{`/${current}`}</h1>
+               <h1 className='current-title'>
+                  {current > 24 ? `/${current.slice(0, 24)}...` : `/${current}`}
+               </h1>
                {content()}
             </div>
             <div className='row-2'>

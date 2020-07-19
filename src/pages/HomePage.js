@@ -39,7 +39,9 @@ const Home = () => {
                {recent.map(item => (
                   <div key={item.bPageID} className='recent-item'>
                      <Link to={item.bPageID} className='link'>
-                        {item.bPageID}
+                        {item.bPageID.length > 14
+                           ? `${item.bPageID.slice(0, 14)}...`
+                           : item.bPageID}
                      </Link>
                      <h4 className='time'>
                         {timeConverter(item.tsEdited)}
@@ -53,7 +55,9 @@ const Home = () => {
                {popularExampleData.map(item => (
                   <div key={item.name} className='recent-item'>
                      <Link to={item.name} className='link'>
-                        {item.name}
+                        {item.name.length > 14
+                           ? `${item.name.slice(0, 14)}...`
+                           : item.name}
                      </Link>
                      <h4 className='time'>
                         {`${item.visited}x`}
@@ -63,15 +67,6 @@ const Home = () => {
                ))}
             </div>
          </div>
-         {/* <Link to='/yoga' className='list-item'>
-            /yoga
-         </Link>
-         <Link to='/bonsai' className='list-item'>
-            /bonsai
-         </Link>
-         <Link to='/corona' className='list-item'>
-            /corona
-         </Link> */}
       </Fragment>
    );
 };
