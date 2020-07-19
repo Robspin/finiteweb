@@ -4,6 +4,4 @@
 
 - Rerender recently edited after submitting form ?
 
-- Make Mobile friendly.
-
 - Optimize code

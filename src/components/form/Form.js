@@ -13,10 +13,8 @@ const mdParser = new MarkdownIt();
 const Form = ({ setEditMode, data }) => {
    const [text, setText] = useState(data.content);
    const [name, setName] = useState('Anon');
-   // const [value, setValue] = React.useState('');
    const [selectedTab, setSelectedTab] = React.useState('write');
 
-   // const handleChangeText = e => setText(e.target.value);
    const handleChangeName = e => {
       setName(e.target.value);
    };
@@ -38,20 +36,8 @@ const Form = ({ setEditMode, data }) => {
          .then(() => setEditMode(false));
    };
 
-   // function handleEditorChange({ html, text }) {
-   //    console.log('handleEditorChange', html, text);
-   // }
-
-   // console.log(data.bPageID);
-
    return (
       <form className='form-container'>
-         {/* <textarea
-            placeholder='Please write what you know about this subject.'
-            defaultValue={data.content}
-            onChange={handleChangeText}
-         />
-          */}
          <div className='container'>
             <ReactMde
                toolbarCommands={[

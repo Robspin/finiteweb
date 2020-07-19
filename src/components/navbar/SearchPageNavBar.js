@@ -9,7 +9,7 @@ const SearchPageNavBar = ({ setEditMode, setCurrent }) => {
    const onSubmit = e => {
       e.preventDefault();
       setCurrent(input.trim().toLowerCase());
-      History.push('/' + input.trim().toLowerCase());
+      History.push('/' + input.trim().toLowerCase().replace(/ /g, ''));
       setInput('');
       setEditMode(false);
    };
@@ -32,6 +32,7 @@ const SearchPageNavBar = ({ setEditMode, setCurrent }) => {
                      value={input}
                      maxLength={64}
                      onChange={e => setInput(e.target.value)}
+                     onKeyPress={e => e.which === 32 && e.preventDefault()}
                   />
 
                   <div className='input-group-append'>

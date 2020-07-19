@@ -18,19 +18,20 @@ const Search = ({ match }) => {
       if (current === '') {
          let x = url;
          if (x.length > 64) x = x.slice(0, 64);
-         setCurrent(x);
+         setCurrent(x.replace(/ /g, ''));
       }
-      // console.log(match.params.id);
-      axios
-         .get(
-            `http://localhost:8080/api/${current}
+      if (current !== '') {
+         axios
+            .get(
+               `http://localhost:8080/api/${current}
          `
-         )
-         .then(res => {
-            setdata(res.data);
-            setLoading(false);
-         })
-         .catch(err => console.log(err));
+            )
+            .then(res => {
+               setdata(res.data);
+               setLoading(false);
+            })
+            .catch(err => console.log(err));
+      }
    }, [current, editMode, url]);
 
    const content = () => {

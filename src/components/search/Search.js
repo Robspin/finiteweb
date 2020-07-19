@@ -4,15 +4,10 @@ import './search.css';
 
 const Search = () => {
    const [input, setInput] = useState('');
-   //eslint-disable-next-line
-   // const [current, setCurrent] = useState('');
 
    const onSubmit = e => {
-      // e.preventDefault();
-      // setCurrent(input.trim().toLowerCase());
-      History.push('/' + input.trim().toLowerCase());
+      History.push('/' + input.trim().toLowerCase().replace(/ /g, ''));
       setInput('');
-      // console.log(History);
    };
 
    return (
@@ -26,6 +21,7 @@ const Search = () => {
                   placeholder='Type page...'
                   value={input}
                   onChange={e => setInput(e.target.value)}
+                  onKeyPress={e => e.which === 32 && e.preventDefault()}
                />
 
                <div className='input-group-append'>

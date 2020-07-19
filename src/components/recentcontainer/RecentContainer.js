@@ -21,11 +21,11 @@ const RecentContainer = ({ setCurrent, setEditMode }) => {
 
    useEffect(() => {
       fetchData();
-
-      setInterval(() => {
+      const intervalId = setInterval(() => {
          setRecent([]);
          fetchData();
       }, 60000);
+      return () => clearInterval(intervalId);
    }, []);
 
    return (
