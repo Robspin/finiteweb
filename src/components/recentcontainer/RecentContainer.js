@@ -10,7 +10,7 @@ const RecentContainer = ({ setCurrent, setEditMode }) => {
    const fetchData = () => {
       axios
          .get(
-            `http://localhost:8080/api/recent
+            `http://localhost:8080/api/list/recent
          `
          )
          .then(res => {

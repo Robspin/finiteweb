@@ -44,7 +44,7 @@ const Form = ({ setEditMode, data }) => {
                   ['header', 'bold', 'italic', 'quote', 'code', 'link']
                ]}
                value={text}
-               onChange={setText}
+               onChange={e => (e.length < 21844 ? setText(e) : null)}
                selectedTab={selectedTab}
                onTabChange={setSelectedTab}
                generateMarkdownPreview={markdown =>
@@ -59,7 +59,7 @@ const Form = ({ setEditMode, data }) => {
          </div>
          <input
             className='name-input'
-            maxLength={12}
+            maxLength={15}
             onChange={handleChangeName}
             onKeyPress={e =>
                e.which === 13 || e.which === 32 ? e.preventDefault() : null

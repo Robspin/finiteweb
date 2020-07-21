@@ -8,15 +8,26 @@ import timeConverter from '../components/timeconverter/timeConverter';
 
 const Home = () => {
    const [recent, setRecent] = useState([]);
+   const [popular, setPopular] = useState([]);
 
    const fetchData = () => {
       axios
          .get(
-            `http://localhost:8080/api/recent
+            `http://localhost:8080/api/list/recent
          `
          )
          .then(res => {
             setRecent(res.data);
+            // console.log(res.data);
+         })
+         .catch(err => console.log(err));
+      axios
+         .get(
+            `http://localhost:8080/api/list/popular
+         `
+         )
+         .then(res => {
+            setPopular(res.data);
             // console.log(res.data);
          })
          .catch(err => console.log(err));
@@ -53,16 +64,16 @@ const Home = () => {
             </div>
             <div className='sub-sub-container'>
                <h3 className='recently'>Popular Pages:</h3>
-               {popularExampleData.map(item => (
-                  <div key={item.name} className='recent-item'>
-                     <Link to={item.name} className='link'>
-                        {item.name.length > 14
-                           ? `${item.name.slice(0, 14)}...`
-                           : item.name}
+               {popular.map(item => (
+                  <div key={item.bPageID} className='recent-item'>
+                     <Link to={item.bPageID} className='link'>
+                        {item.bPageID.length > 14
+                           ? `${item.bPageID.slice(0, 14)}...`
+                           : item.bPageID}
                      </Link>
                      <h4 className='time'>
-                        {`${item.visited}x`}
-                        <span> visited</span>
+                        {`${item.editCount}x`}
+                        <span> edited</span>
                      </h4>
                   </div>
                ))}
