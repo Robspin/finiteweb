@@ -118,6 +118,16 @@ body {
    margin-right: 20px;
 }
 
+.edit-time {
+   margin-left: 10px;
+   opacity: 0.3;
+}
+
+.edit-time.show {
+   color: var(--accent-color);
+   opacity: 1;
+}
+
 @media only screen and (max-width: 1145px) {
    .grid-container {
       padding-left: 20px;

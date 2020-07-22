@@ -48,4 +48,18 @@ export const convertUnlockTime = javaTime => {
    }
 };
 
+export const showUnlockTime = javaTime => {
+   let time = javaTime.split('[UTC]');
+
+   time = new Date(time[0]) / 60000;
+   let timeNow = new Date() / 60000;
+
+   let timePast = Math.floor(timeNow - time);
+   if (timePast < 0) {
+      return `Able to edit in ${timePast * -1} min${timePast < -1 ? 's' : ''}`;
+   } else {
+      return null;
+   }
+};
+
 export default timeConverter;

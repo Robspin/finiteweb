@@ -2,7 +2,10 @@ import React, { Fragment, useEffect, useState } from 'react';
 import './content.css';
 import Button from '../button/Button';
 import Author from '../author/Author';
-import { convertUnlockTime } from '../timeconverter/timeConverter';
+import {
+   convertUnlockTime,
+   showUnlockTime
+} from '../timeconverter/timeConverter';
 
 import MarkdownIt from 'markdown-it';
 
@@ -10,13 +13,18 @@ const mdParser = new MarkdownIt();
 
 const Content = ({ data, setEditMode }) => {
    const [parsed, setParsed] = useState('');
-
-   // console.log(data);
+   const [editTime, setEditTime] = useState(null);
+   const [warning, setWarning] = useState(false);
 
    useEffect(() => {
       if (typeof data.content === 'string') {
          setParsed(mdParser.render(data.content));
       }
+      setEditTime(showUnlockTime(data.tsEditUnlock));
+      const intervalId = setInterval(() => {
+         setEditTime(showUnlockTime(data.tsEditUnlock));
+      }, 60000);
+      return () => clearInterval(intervalId);
    }, [data]);
 
    // console.log(typeof data.content === 'string');
@@ -27,15 +35,16 @@ const Content = ({ data, setEditMode }) => {
             dangerouslySetInnerHTML={{ __html: parsed }}
          ></div>
          <div className='inline-div'>
-            <div>
+            <div className='inline-div-middle'>
                <Button
                   onClick={() =>
-                     convertUnlockTime(data.tsEditUnlock)
-                        ? setEditMode(true)
-                        : null
+                     editTime ? setWarning(true) : setEditMode(true)
                   }
                   label='edit'
                />
+               <p className={warning ? 'edit-time show' : 'edit-time'}>
+                  {editTime}
+               </p>
             </div>
             <Author data={data} />
          </div>

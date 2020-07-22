@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import NavBar from '../components/navbar/NavBar';
-import popularExampleData from '../components/recentcontainer/popularExampleData';
 import timeConverter from '../components/timeconverter/timeConverter';
 
 const Home = () => {

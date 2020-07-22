@@ -10,7 +10,7 @@ const NavBar = ({ onSubmit }) => {
          <div>
             <Link to='/' className='link'>
                <h1 className='logo'>
-                  FiniteWeb.com <span className='dash'>/</span>
+                  FiniteWeb.org <span className='dash'>/</span>
                </h1>
             </Link>
          </div>
