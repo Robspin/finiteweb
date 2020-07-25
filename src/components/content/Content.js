@@ -2,10 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import './content.css';
 import Button from '../button/Button';
 import Author from '../author/Author';
-import {
-   convertUnlockTime,
-   showUnlockTime
-} from '../timeconverter/timeConverter';
+import { showUnlockTime } from '../timeconverter/timeConverter';
 
 import MarkdownIt from 'markdown-it';
 

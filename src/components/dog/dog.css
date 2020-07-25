@@ -1,0 +1,54 @@
+.dog-container {
+   margin: 10vh 20px 0 20px;
+   height: 280px;
+   position: relative;
+   display: flex;
+   align-items: flex-end;
+
+   flex-direction: column;
+}
+
+.textbox {
+   margin-right: 60px;
+   margin-top: 30px;
+}
+
+.text-container {
+   position: absolute;
+   height: 130px;
+   width: 240px;
+   margin-top: 33px;
+   margin-right: 72px;
+}
+
+.doggo {
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   transition: 0.3s;
+}
+
+.doggo:hover {
+   transform: scale(1.02);
+}
+
+.doggo:active {
+   transform: scale(0.97);
+}
+
+.close-btn {
+   position: absolute;
+   margin-top: 5px;
+   right: 0;
+   border: none;
+   background: none;
+   color: var(--accent-color);
+}
+
+.close-btn:hover {
+   cursor: pointer;
+}
+
+.close-btn:focus {
+   outline: none;
+}

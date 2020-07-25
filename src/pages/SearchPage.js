@@ -6,6 +6,7 @@ import Loading from '../components/loading/Loading';
 import Content from '../components/content/Content';
 import Form from '../components/form/Form';
 import RecentContainer from '../components/recentcontainer/RecentContainer';
+import Dog from '../components/dog/Dog';
 
 const Search = ({ match }) => {
    const [data, setdata] = useState({});
@@ -62,6 +63,7 @@ const Search = ({ match }) => {
                   setCurrent={setCurrent}
                   setEditMode={setEditMode}
                />
+               <Dog />
             </div>
          </div>
       </Fragment>
