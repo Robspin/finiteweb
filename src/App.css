@@ -108,11 +108,13 @@ body {
 }
 
 .sub-sub-container-left {
+   height: 260.4px;
    width: 50%;
    margin-left: 20px;
 }
 
 .sub-sub-container {
+   height: 260.4px;
    width: 50%;
    margin-left: 60px;
    margin-right: 20px;

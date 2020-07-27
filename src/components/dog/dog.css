@@ -17,8 +17,8 @@
    position: absolute;
    height: 130px;
    width: 240px;
-   margin-top: 33px;
-   margin-right: 72px;
+   top: 37px;
+   right: 72px;
 }
 
 .doggo {
@@ -29,7 +29,8 @@
 }
 
 .doggo:hover {
-   transform: scale(1.02);
+   cursor: pointer;
+   /* transform: scale(1.02); */
 }
 
 .doggo:active {
@@ -38,7 +39,7 @@
 
 .close-btn {
    position: absolute;
-   margin-top: 5px;
+   margin-top: 2px;
    right: 0;
    border: none;
    background: none;
@@ -51,4 +52,8 @@
 
 .close-btn:focus {
    outline: none;
+}
+
+.dog-text {
+   margin-top: 20px;
 }
