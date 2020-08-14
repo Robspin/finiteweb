@@ -1,6 +1,6 @@
 .dog-container {
-   margin: 10vh 20px 0 20px;
-   height: 280px;
+   margin: 260px 20px 0 20px;
+   height: 150px;
    position: relative;
    display: flex;
    align-items: flex-end;
@@ -9,16 +9,16 @@
 }
 
 .textbox {
-   margin-right: 60px;
+   margin-right: 98px;
    margin-top: 30px;
 }
 
 .text-container {
    position: absolute;
-   height: 130px;
-   width: 240px;
-   top: 37px;
-   right: 72px;
+   height: 100px;
+   width: 190px;
+   top: 30px;
+   right: 130px;
 }
 
 .doggo {
@@ -39,8 +39,8 @@
 
 .close-btn {
    position: absolute;
-   margin-top: 2px;
-   right: 0;
+   top: 6px;
+   right: -6px;
    border: none;
    background: none;
    color: var(--accent-color);
@@ -55,5 +55,12 @@
 }
 
 .dog-text {
-   margin-top: 20px;
+   margin-top: 15px;
+   font-size: 14px;
+}
+
+@media only screen and (max-width: 1145px) {
+   .dog-container {
+      margin: 30px 20px 20px 20px;
+   }
 }

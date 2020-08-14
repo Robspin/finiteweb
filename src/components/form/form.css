@@ -34,3 +34,7 @@ textarea:focus {
    align-items: center;
    justify-content: flex-start;
 }
+
+.container {
+   margin-right: 25px;
+}

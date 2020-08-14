@@ -17,9 +17,10 @@ const Dog = () => {
    judgment and don't cite anything on this site as a source.`);
 
    const textArr = [
-      `This site doesn't use cookies. Isn't that nice?`,
+      "Want a cookie? TOO BAD, we don't have those over here.",
       'Although I look like a Sheba Inu, I am actually a Corgi!',
-      'We appreciate feedback, please let us know in /feedback.'
+      'We appreciate feedback, please let us know in /feedback.',
+      'Woof! Woof! Enjoy your stay. Woof!'
    ];
    let index = 0;
 
@@ -27,7 +28,7 @@ const Dog = () => {
       const intervalId = setInterval(() => {
          setDogPic(require(`./images/${pickRandom()}.png`));
          setText(textArr[index]);
-         index === 2 ? (index = 0) : index++;
+         index === 3 ? (index = 0) : index++;
       }, 30000);
       return () => clearInterval(intervalId);
    }, []);
@@ -36,7 +37,12 @@ const Dog = () => {
       <div className='dog-container'>
          {showTextBox ? (
             <Fragment>
-               <img src={textbox} alt='textbox' className='textbox' />
+               <img
+                  src={textbox}
+                  alt='textbox'
+                  className='textbox'
+                  style={{ height: '120px' }}
+               />
                <div className='text-container'>
                   <button
                      className='close-btn'
@@ -57,7 +63,7 @@ const Dog = () => {
             onClick={() => setDogPic(require(`./images/${pickRandom()}.png`))}
             alt='cute doggo'
             className='doggo'
-            style={{ height: '100px' }}
+            style={{ height: '90px' }}
          />
       </div>
    );

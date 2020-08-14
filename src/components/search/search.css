@@ -43,3 +43,12 @@ input {
    cursor: pointer;
    background-color: var(--accent-color);
 }
+
+@media only screen and (max-width: 900px) {
+   input {
+      width: 300px;
+   }
+   .input-group {
+      width: 300px;
+   }
+}
