@@ -20,7 +20,8 @@ const Dog = () => {
       "Want a cookie? TOO BAD, we don't have those over here.",
       'Although I look like a Sheba Inu, I am actually a Corgi!',
       'We appreciate feedback, please let us know in /feedback.',
-      'Woof! Woof! Enjoy your stay. Woof!'
+      'Woof! Woof! Enjoy your stay. Woof!',
+      'This site was also built by Jurricane and Robspin but I did most of the work.'
    ];
    let index = 0;
 
@@ -28,7 +29,7 @@ const Dog = () => {
       const intervalId = setInterval(() => {
          setDogPic(require(`./images/${pickRandom()}.png`));
          setText(textArr[index]);
-         index === 3 ? (index = 0) : index++;
+         index === 4 ? (index = 0) : index++;
       }, 30000);
       return () => clearInterval(intervalId);
    }, []);

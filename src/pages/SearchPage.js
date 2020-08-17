@@ -7,6 +7,7 @@ import Content from '../components/content/Content';
 import Form from '../components/form/Form';
 import RecentContainer from '../components/recentcontainer/RecentContainer';
 import Dog from '../components/dog/Dog';
+import RandomButton from '../components/randomButton/RandomButton';
 
 const Search = ({ match }) => {
    const [data, setdata] = useState({});
@@ -59,10 +60,13 @@ const Search = ({ match }) => {
                {content()}
             </div>
             <div className='row-2'>
-               <RecentContainer
-                  setCurrent={setCurrent}
-                  setEditMode={setEditMode}
-               />
+               <div className='inverse-div'>
+                  <RandomButton searchPage={true} setCurrent={setCurrent} />
+                  <RecentContainer
+                     setCurrent={setCurrent}
+                     setEditMode={setEditMode}
+                  />
+               </div>
                <Dog />
             </div>
          </div>

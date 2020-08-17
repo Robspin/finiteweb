@@ -5,6 +5,14 @@
    padding-right: 20px;
 }
 
+a {
+   color: var(--accent-color);
+}
+
+a:hover {
+   color: var(--text-color);
+}
+
 .content::-webkit-scrollbar {
    width: 0.5em;
 }

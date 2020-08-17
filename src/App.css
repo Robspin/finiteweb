@@ -108,13 +108,13 @@ body {
 }
 
 .sub-sub-container-left {
-   height: 260.4px;
+   height: 354px;
    width: 50%;
    margin-left: 20px;
 }
 
 .sub-sub-container {
-   height: 260.4px;
+   height: 354px;
    width: 50%;
    margin-left: 60px;
    margin-right: 20px;
@@ -131,6 +131,12 @@ body {
 }
 
 @media only screen and (max-width: 1145px) {
+   .inverse-div {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+   }
+
    .grid-container {
       padding-left: 20px;
       padding-right: 20px;
@@ -142,6 +148,7 @@ body {
    }
 
    body {
+      padding-right: 15px;
       overflow-y: scroll;
       background-color: var(--secondary-bg-color);
    }
@@ -153,6 +160,11 @@ body {
 }
 
 @media only screen and (max-width: 900px) {
+   body {
+      justify-content: flex-start;
+      margin-top: 10px;
+   }
+
    .sub-container {
       display: flex;
       flex-direction: column;

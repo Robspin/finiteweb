@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import NavBar from '../components/navbar/NavBar';
 import timeConverter from '../components/timeconverter/timeConverter';
+import RandomButton from '../components/randomButton/RandomButton';
 
 const Home = () => {
    const [recent, setRecent] = useState([]);
@@ -78,6 +79,7 @@ const Home = () => {
                ))}
             </div>
          </div>
+         <RandomButton />
       </Fragment>
    );
 };

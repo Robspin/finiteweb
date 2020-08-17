@@ -1,6 +1,6 @@
 .recent-container {
-   margin: 10vh 20px 0 20px;
-   height: 235.4px;
+   margin: 20px 20px 0 20px;
+   height: 354px;
 }
 
 .recently {
@@ -8,4 +8,11 @@
    font-weight: 400;
    color: var(--accent-color);
    font-size: 20px;
+}
+
+@media only screen and (max-width: 1145px) {
+   .recent-container {
+      margin-top: 20px;
+      margin-bottom: 20px;
+   }
 }
