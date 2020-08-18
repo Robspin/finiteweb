@@ -27,8 +27,7 @@
 
 .random-button:hover {
    cursor: pointer;
-   background-color: var(--main-bg-color);
-   color: var(--text-color);
+   opacity: 1;
 }
 
 .random-button:focus {
