@@ -6,6 +6,11 @@ import NavBar from '../components/navbar/NavBar';
 import timeConverter from '../components/timeconverter/timeConverter';
 import RandomButton from '../components/randomButton/RandomButton';
 
+const URL =
+   process.env.NODE_ENV !== 'production'
+      ? process.env.REACT_APP_DEV_URL
+      : process.env.REACT_APP_PROD_URL;
+
 const Home = () => {
    const [recent, setRecent] = useState([]);
    const [popular, setPopular] = useState([]);
@@ -13,7 +18,7 @@ const Home = () => {
    const fetchData = () => {
       axios
          .get(
-            `http://localhost:8080/api/list/recent
+            `${URL}api/list/recent
          `
          )
          .then(res => {
@@ -23,7 +28,7 @@ const Home = () => {
          .catch(err => console.log(err));
       axios
          .get(
-            `http://localhost:8080/api/list/popular
+            `${URL}api/list/popular
          `
          )
          .then(res => {

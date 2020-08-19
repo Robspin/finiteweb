@@ -3,10 +3,15 @@ import axios from 'axios';
 import History from '../History';
 import './randomButton.css';
 
+const URL =
+   process.env.NODE_ENV !== 'production'
+      ? process.env.REACT_APP_DEV_URL
+      : process.env.REACT_APP_PROD_URL;
+
 const RandomButton = ({ setCurrent, searchPage }) => {
    const onClick = e => {
       axios
-         .get(`http://localhost:8080/api/random`)
+         .get(`${URL}api/random`)
          .then(res => {
             console.log(res.data);
             searchPage && setCurrent(res.data.bPageID.trim().toLowerCase());

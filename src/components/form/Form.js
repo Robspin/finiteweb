@@ -10,6 +10,11 @@ import Button from '../button/Button';
 
 const mdParser = new MarkdownIt();
 
+const URL =
+   process.env.NODE_ENV !== 'production'
+      ? process.env.REACT_APP_DEV_URL
+      : process.env.REACT_APP_PROD_URL;
+
 const Form = ({ setEditMode, data }) => {
    const [text, setText] = useState(data.content);
    const [name, setName] = useState('Anon');
@@ -25,7 +30,7 @@ const Form = ({ setEditMode, data }) => {
       e.preventDefault();
       axios
          .post(
-            `http://localhost:8080/api/${data.bPageID}`,
+            `${URL}api/${data.bPageID}`,
             JSON.stringify({
                bPageID: data.bPageID,
                content: text,

@@ -16,16 +16,15 @@ const Dog = () => {
    ] = useState(`Anything you read here may or may not be true. Use your own
    judgment and don't cite anything on this site as a source.`);
 
-   const textArr = [
-      "Want a cookie? TOO BAD, we don't have those over here.",
-      'Although I look like a Sheba Inu, I am actually a Corgi!',
-      'We appreciate feedback, please let us know in /feedback.',
-      'Woof! Woof! Enjoy your stay. Woof!',
-      'This site was also built by Jurricane and Robspin but I did most of the work.'
-   ];
-   let index = 0;
-
    useEffect(() => {
+      const textArr = [
+         "Want a cookie? TOO BAD, we don't have those over here.",
+         'Although I look like a Sheba Inu, I am actually a Corgi!',
+         'We appreciate feedback, please let us know in /feedback.',
+         'Woof! Woof! Enjoy your stay. Woof!',
+         'This site was also built by Jurricane and Robspin but I did most of the work.'
+      ];
+      let index = 0;
       const intervalId = setInterval(() => {
          setDogPic(require(`./images/${pickRandom()}.png`));
          setText(textArr[index]);

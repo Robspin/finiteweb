@@ -35,8 +35,12 @@
 }
 
 @media only screen and (max-width: 1145px) {
+   .random-button {
+      margin-bottom: 40px;
+   }
    .search-page {
       width: 95%;
+      margin-bottom: 0;
    }
 }
 

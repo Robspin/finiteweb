@@ -9,6 +9,11 @@ import RecentContainer from '../components/recentcontainer/RecentContainer';
 import Dog from '../components/dog/Dog';
 import RandomButton from '../components/randomButton/RandomButton';
 
+const URL =
+   process.env.NODE_ENV !== 'production'
+      ? process.env.REACT_APP_DEV_URL
+      : process.env.REACT_APP_PROD_URL;
+
 const Search = ({ match }) => {
    const [data, setdata] = useState({});
    const [loading, setLoading] = useState(true);
@@ -25,7 +30,7 @@ const Search = ({ match }) => {
       if (current !== '') {
          axios
             .get(
-               `http://localhost:8080/api/${current}
+               `${URL}api/${current}
          `
             )
             .then(res => {

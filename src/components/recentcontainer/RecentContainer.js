@@ -4,13 +4,18 @@ import axios from 'axios';
 
 import RecentItem from './recentitem/RecentItem';
 
+const URL =
+   process.env.NODE_ENV !== 'production'
+      ? process.env.REACT_APP_DEV_URL
+      : process.env.REACT_APP_PROD_URL;
+
 const RecentContainer = ({ setCurrent, setEditMode }) => {
    const [recent, setRecent] = useState([]);
 
    const fetchData = () => {
       axios
          .get(
-            `http://localhost:8080/api/list/recent
+            `${URL}api/list/recent
          `
          )
          .then(res => {
