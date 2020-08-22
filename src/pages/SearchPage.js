@@ -60,7 +60,9 @@ const Search = ({ match }) => {
                   setCurrent={setCurrent}
                />
                <h1 className='current-title'>
-                  {current > 24 ? `/${current.slice(0, 24)}...` : `/${current}`}
+                  {current.length > 24
+                     ? `/${current.slice(0, 24)}...`
+                     : `/${current}`}
                </h1>
                {content()}
             </div>
