@@ -62,4 +62,13 @@ export const showUnlockTime = javaTime => {
    }
 };
 
+export function zoomOutMobile() {
+   const viewport = document.querySelector('meta[name="viewport"]');
+
+   if (viewport) {
+      viewport.content = 'initial-scale=1';
+      viewport.content = 'width=device-width';
+   }
+}
+
 export default timeConverter;

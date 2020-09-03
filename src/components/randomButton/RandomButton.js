@@ -16,6 +16,7 @@ const RandomButton = ({ setCurrent, searchPage }) => {
             console.log(res.data);
             searchPage && setCurrent(res.data.bPageID.trim().toLowerCase());
             History.push('/' + res.data.bPageID.trim().toLowerCase());
+            window.scrollTo(0, 0);
          })
          .catch(err => console.log(err));
    };

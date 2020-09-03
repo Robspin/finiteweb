@@ -46,7 +46,7 @@ const Form = ({ setEditMode, data }) => {
          <div className='container'>
             <ReactMde
                toolbarCommands={[
-                  ['header', 'bold', 'italic', 'quote', 'code', 'link']
+                  ['header', 'bold', 'italic', 'image', 'code', 'link']
                ]}
                value={text}
                onChange={e => (e.length < 21844 ? setText(e) : null)}

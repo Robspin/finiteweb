@@ -2,7 +2,9 @@ import React from 'react';
 import History from '../../History';
 import './recentItem.css';
 
-import timeConverter from '../../timeconverter/timeConverter';
+import timeConverter, {
+   zoomOutMobile
+} from '../../timeconverter/timeConverter';
 
 const RecentItem = ({ item, setCurrent, setEditMode }) => {
    return (
@@ -13,6 +15,8 @@ const RecentItem = ({ item, setCurrent, setEditMode }) => {
                setCurrent(item.bPageID);
                History.push(item.bPageID);
                setEditMode(false);
+               window.scrollTo(0, 0);
+               zoomOutMobile();
             }}
          >
             {item.bPageID.length > 14

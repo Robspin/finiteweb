@@ -139,6 +139,7 @@ body {
    }
 
    .grid-container {
+      width: 100vw;
       padding-left: 20px;
       padding-right: 20px;
       grid-template-columns: 1fr;

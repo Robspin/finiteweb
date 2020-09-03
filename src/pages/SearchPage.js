@@ -1,6 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
+import History from '../components/History';
 import SearchPageNavBar from '../components/navbar/SearchPageNavBar';
 import Loading from '../components/loading/Loading';
 import Content from '../components/content/Content';
@@ -8,6 +10,7 @@ import Form from '../components/form/Form';
 import RecentContainer from '../components/recentcontainer/RecentContainer';
 import Dog from '../components/dog/Dog';
 import RandomButton from '../components/randomButton/RandomButton';
+import zoomOutMobile from '../components/timeconverter/timeConverter';
 
 const URL =
    process.env.NODE_ENV !== 'production'
@@ -20,6 +23,9 @@ const Search = ({ match }) => {
    const [current, setCurrent] = useState('');
    const [editMode, setEditMode] = useState(false);
    const [url] = useState(match.params.id);
+   const [locationKeys, setLocationKeys] = useState([]);
+
+   const history = useHistory();
 
    useEffect(() => {
       if (current === '') {
@@ -36,10 +42,22 @@ const Search = ({ match }) => {
             .then(res => {
                setdata(res.data);
                setLoading(false);
+               zoomOutMobile();
             })
             .catch(err => console.log(err));
       }
-   }, [current, editMode, url]);
+      return history.listen(location => {
+         if (history.action === 'PUSH') {
+            setLocationKeys([location.key]);
+         }
+         if (history.action === 'POP') {
+            // window.location.reload(false);
+            let y = History.location.pathname;
+            y = y.substring(1);
+            setCurrent(y);
+         }
+      });
+   }, [current, editMode, url, locationKeys, history]);
 
    const content = () => {
       if (loading === true) {
